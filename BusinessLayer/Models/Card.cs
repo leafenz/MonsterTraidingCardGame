@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
+using BusinessLayer.Models;
 
-namespace MonsterTraidingCardGame.Classes
+namespace BusinessLayer.Models
 {
-    internal abstract class Card
+    public abstract class Card
     {
         protected Card(string name, int damage, ElementType element)
         {
@@ -16,9 +17,9 @@ namespace MonsterTraidingCardGame.Classes
             Damage = damage;
             Element = element;
         }
-        private string Name { get; set; }
-        private int Damage { get; set; }
-        private ElementType Element { get; set; }
+        public string Name { get; set; }
+        public int Damage { get; set; }
+        public ElementType Element { get; set; }
         public enum ElementType
         {
             Fire,

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer.Models;
+using static BusinessLayer.Models.User;
 
-namespace MonsterTraidingCardGame.Classes
+namespace BusinessLayer.Models
 {
     internal class Battle
     {

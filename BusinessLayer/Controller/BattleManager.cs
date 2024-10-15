@@ -1,5 +1,7 @@
-private class BattleManager
+namespace BusinessLayer.Controller
 {
-
-
+    public class BattleManager
+    {
+        
+    }
 }

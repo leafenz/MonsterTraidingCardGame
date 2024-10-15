@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MonsterTraidingCardGame.Classes.Card;
+using BusinessLayer.Models;
 
-namespace MonsterTraidingCardGame.Classes
+namespace BusinessLayer.Models
 {
     internal class SpellCard : Card
     {

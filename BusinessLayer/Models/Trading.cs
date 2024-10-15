@@ -4,8 +4,9 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer.Models;
 
-namespace MonsterTraidingCardGame.Classes
+namespace BusinessLayer.Models
 {
     internal class Traiding
     {
@@ -15,12 +16,12 @@ namespace MonsterTraidingCardGame.Classes
             Completed
         }
 
-        public string CardType { get; set; }
-        public int MinDamage { get; set; }
-        public Card OfferedCard { get; set; }
-        public User OfferingPlayer { get; set; }
-        public User AcceptingPlayer { get; set; }
-        public TradeStatus Status { get; set; }
+        public string? CardType { get; set; }
+        public int? MinDamage { get; set; }
+        public Card? OfferedCard { get; set; }
+        public User? OfferingPlayer { get; set; }
+        public User? AcceptingPlayer { get; set; }
+        public TradeStatus? Status { get; set; }
 
         public Traiding(User offeringPlayer, Card offeredCard, string cardType, int minDamage)
         {

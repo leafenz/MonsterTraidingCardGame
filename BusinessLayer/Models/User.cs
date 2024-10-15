@@ -1,50 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static MonsterTraidingCardGame.Classes.Card;
-using System.Xml.Linq;
+using BusinessLayer.Models;
 
-namespace MonsterTraidingCardGame.Classes
+namespace BusinessLayer.Models
 {
-    internal class User
+    public class User
     {
         public User(string username, string password)
         {
-            Username = username;
-            Password = password;
+            Username = username ?? throw new ArgumentNullException(nameof(username));
+            Password = password ?? throw new ArgumentNullException(nameof(password));
+            Stack = new List<Card>();
+            Deck = new List<Card>();
         }
-        private string Username { get; set; }
-        private string Password { get; set; }
-        private int Elo { get; set; } = 100;
-        private int Coins { get; set; } = 20;
-        private List<Card> Stack { get; set; }
-        private List<Card> Deck { get; set; }
+
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int Elo { get; set; } = 100;
+        public int Coins { get; set; } = 20;
+        public List<Card> Stack { get; set; }
+        public List<Card> Deck { get; set; }
+        public string? Token { get; set; }
 
         public void AddElo(int amount)
         {
             Elo += amount;
         }
+
         public void SubtractElo(int amount)
         {
             Elo -= amount;
         }
 
-        public void AddCardtoDeck(Card card) { }
+        public void AddCardToDeck(Card card)
+        {
+            if (card == null)
+            {
+                throw new ArgumentNullException(nameof(card));
+            }
+
+            Deck.Add(card);
+        }
+
         public void BuyPackage()
         {
             if (Coins < 5)
             {
-                Console.WriteLine("nicht genügend Münzen");
+                Console.WriteLine("Nicht genügend Münzen");
                 return;
             }
 
             Coins -= 5;
             List<Card> newCards = GenerateRandomCards(5);
-
             Stack.AddRange(newCards);
-
             Console.WriteLine("Paket wurde gekauft");
         }
 
